@@ -1,20 +1,10 @@
 <?php
+
+namespace GityPhp;
+use DateTime;
 //Se establece la zona horaria que uno quiere
-date_default_timezone_set("America/Bogota");
 
-class ArregloPg
-{
-
-    public function __construct(
-        public String $NombrePagina,
-        public String $Description,
-        public Int $Costo,
-        public DateTime $FechaHoy,
-        public DateTime $FechaX,
-        public bool $condicionalIf,
-        public array $arreglos,
-    ) {}
-}
+require 'ArregloPg.php';
 
 $datos = new ArregloPg(
     NombrePagina: "Pruebas PhP",
@@ -27,8 +17,8 @@ $datos = new ArregloPg(
 );
 
 //Operador terciario
-$estado = $datos->condicionalIf ? "ACTIVO" : "NEGADO";
-
+$estado = $datos->CondicionalIf ? "ACTIVO" : "NEGADO";
+$datos->addArray("");
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +27,7 @@ $estado = $datos->condicionalIf ? "ACTIVO" : "NEGADO";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $datos->NombrePagina ?></title>
+    <title><?= $datos->NombrePagina?></title>
 </head>
 
 <body>

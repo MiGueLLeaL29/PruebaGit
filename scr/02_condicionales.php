@@ -1,4 +1,7 @@
 <?php
+
+namespace GityPhp;
+
 //Se establece la zona horaria que uno quiere
 date_default_timezone_set("America/Bogota");
 
@@ -10,16 +13,22 @@ $FechaHoy = date("F j, Y, g:i a") . "\n"; // Fecha para hoy con el timezone de b
 $condicionalIf = true; //es un boleano que es true o false
 $estado = $condicionalIf ? "ACTIVO" : "NEGADO";
 
-$arreglos = [
-    "Uno",
-    "Dos",
-    "Tres",
-    "Cuatro",
-    "Cinco",
-    "Seis",
-    "Siete",
-    "Ocho"
-];
+$nivel = 3;
+$estadoAlcanzado = "";
+
+switch ($nivel) {
+    case 1:
+        $estadoAlcanzado = "Bajo";
+        break;
+    case 2:
+        $estadoAlcanzado = "Medio";
+        break;
+    case 3:
+        $estadoAlcanzado = "Alto";
+        break;
+    default:
+        $estadoAlcanzado = "Desconocido";
+}
 
 
 ?>
@@ -50,14 +59,9 @@ $arreglos = [
         <p>NEGADO</p>    
     //<?php endif; ?>
     -->
-    <strong>
-        <ul>
-            <?php foreach ($arreglos as $Escribeindividual): ?>
-                <li>$Escribeindividual</li>
-            <?php endforeach; ?>
-        </ul>
-    </strong>
+    <p>El acceso al curso es <?= $estado ?>.</p>
 
+    <p>Tu nivel es <?= $estadoAlcanzado ?></p>
 </body>
 
 </html>

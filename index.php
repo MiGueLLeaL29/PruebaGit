@@ -1,8 +1,8 @@
 <?php
+require 'vendor\autoload.php';
+use GityPhp\ArregloPg;
 //Se establece la zona horaria que uno quiere
 date_default_timezone_set("America/Bogota");
-
-require 'ArregloPg.php';
 
 $datos = new ArregloPg(
     NombrePagina: "Pruebas PhP",

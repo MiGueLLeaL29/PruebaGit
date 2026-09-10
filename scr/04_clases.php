@@ -1,8 +1,24 @@
 <?php
+
+namespace GityPhp;
+use DateTime;
+
 //Se establece la zona horaria que uno quiere
 date_default_timezone_set("America/Bogota");
 
-require 'ArregloPg.php';
+class ArregloPg
+{
+
+    public function __construct(
+        public String $NombrePagina,
+        public String $Description,
+        public Int $Costo,
+        public DateTime $FechaHoy,
+        public DateTime $FechaX,
+        public bool $condicionalIf,
+        public array $arreglos,
+    ) {}
+}
 
 $datos = new ArregloPg(
     NombrePagina: "Pruebas PhP",
@@ -15,8 +31,8 @@ $datos = new ArregloPg(
 );
 
 //Operador terciario
-$estado = $datos->getCondicionalIf() ? "ACTIVO" : "NEGADO";
-$datos->addArray("");
+$estado = $datos->condicionalIf ? "ACTIVO" : "NEGADO";
+
 ?>
 
 <!DOCTYPE html>
@@ -25,15 +41,15 @@ $datos->addArray("");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $datos->getTitulo()?></title>
+    <title><?= $datos->NombrePagina ?></title>
 </head>
 
 <body>
-    <h1>Curso de <?= $datos->getTitulo() ?></h1>
-    <h2>Hoy es: <?= $datos->getFechaHoy()->format('d/m/Y h:i A') ?></h2>
-    <p><?= $datos->getDescription() ?></p>
-    <h2>Cuesta: <?= number_format($datos->getCosto(), 0, ',', '.') ?> </h2>
-    <p>HORA REALIZADA DE ESTE CURSO: <?= $datos->getFechaX()->format('d/m/Y h:i A') ?></p>
+    <h1>Curso de <?= $datos->NombrePagina ?></h1>
+    <h2>Hoy es: <?= $datos->FechaHoy->format('d/m/Y h:i A') ?></h2>
+    <p><?= $datos->Description ?></p>
+    <h2>Cuesta: <?= number_format($datos->Costo, 0, ',', '.') ?> </h2>
+    <p>HORA REALIZADA DE ESTE CURSO: <?= $datos->FechaX->format('d/m/Y h:i A') ?></p>
     <!--
     Se utiliza el Format para indicarle el tipo de fecha que estamos utilizando
     Si es d=dia, m=mes, Y=año, h=hora, i=Minutos, A=pm o am
@@ -41,7 +57,7 @@ $datos->addArray("");
     <p><?= $estado ?></p>
     <strong>
         <ul>
-            <?php foreach ($datos->getArray() as $Escribeindividual): ?>
+            <?php foreach ($datos->arreglos as $Escribeindividual): ?>
                 <li><?= $Escribeindividual ?></li>
             <?php endforeach; ?>
         </ul>

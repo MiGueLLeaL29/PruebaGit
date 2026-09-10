@@ -1,4 +1,7 @@
 <?php
+
+namespace GityPhp;
+use DateTime;
 class ArregloPg
 {
 
