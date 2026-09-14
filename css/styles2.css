@@ -1,0 +1,25 @@
+#titulo-principal {
+    color: red;
+}
+
+#tarjeta-1 {
+    background: black;
+    color: white;
+}
+
+#contenedor-tarjetas {
+    display: flex;
+}
+
+#contenedor-tarjetas .card {
+    width: 300px;
+}
+
+#boton-hero:hover{
+    background-color: rgb(127, 223, 255);
+    cursor: pointer;
+}
+
+#enlace-hero{
+    color: chartreuse;
+}

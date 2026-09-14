@@ -1,6 +1,7 @@
 <?php
 
 namespace GityPhp;
+use DateTime;
 
 //Se establece la zona horaria que uno quiere
 date_default_timezone_set("America/Bogota");

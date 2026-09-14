@@ -26,14 +26,15 @@ $datos->addArray("");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $datos->NombrePagina?></title>
+    <link  rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <h1>Curso de <?= $datos->NombrePagina ?></h1>
-    <h2>Hoy es: <?= $datos->FechaHoy->format('d/m/Y h:i A') ?></h2>
+    <h1 class="TCurso">Curso de <?= $datos->NombrePagina ?></h1>
+    <h2 id="dateH">Hoy es: <?= $datos->FechaHoy->format('d/m/Y h:i A') ?></h2>
     <p><?= $datos->Description ?></p>
     <h2>Cuesta: <?= number_format($datos->Costo, 0, ',', '.') ?> </h2>
-    <p>HORA REALIZADA DE ESTE CURSO: <?= $datos->FechaX->format('d/m/Y h:i A') ?></p>
+    <p id="dateC">HORA REALIZADA DE ESTE CURSO: <?= $datos->FechaX->format('d/m/Y h:i A') ?></p>
     <!--
     Se utiliza el Format para indicarle el tipo de fecha que estamos utilizando
     Si es d=dia, m=mes, Y=año, h=hora, i=Minutos, A=pm o am
